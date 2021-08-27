@@ -1,0 +1,11 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubecraft
+spec:
+  template:
+    spec:
+      containers:
+        - name: kubecraft-server
+          image: ghcr.io/raynix/kubecraft:dev-1132132713

@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: kubecraft-vs
+spec:
+  gateways:
+  - kubecraft-gateway
+  hosts:
+  - $(DOMAIN)
+  http:
+  - route:
+    - destination:
+        host: kubecraft  

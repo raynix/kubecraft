@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubecraft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubecraft
+  template:
+    metadata:
+      labels:
+        app: kubecraft
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+      containers:
+        - name: kubecraft-server
+          image: ghcr.io/raynix/kubecraft:v0.2
+          ports:
+            - containerPort: 25565
+          volumeMounts:
+            - name: kubecraft-config-volume
+              mountPath: /minecraft/server.properties
+              subPath: server.properties
+          resources:
+            requests:
+              cpu: 2
+              memory: 2Gi
+            limits:
+              cpu: 3
+              memory: 3Gi
+      volumes:
+        - name: kubecraft-config-volume
+          configMap:
+            name: kubecraft
