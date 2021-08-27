@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-base:
+bases:
   - ../base
 
 configMapGenerator:
@@ -10,3 +10,6 @@ configMapGenerator:
 
 patchesStrategicMerge:
   - patch.yaml
+
+commonAnnotations:
+  domain: mc.awes.one
