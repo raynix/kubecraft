@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
         - name: kubecraft-server
-          image: ghcr.io/raynix/kubecraft:dev-1132132713
+          image: ghcr.io/raynix/kubecraft:dev-1173267031
