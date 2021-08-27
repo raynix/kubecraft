@@ -3,6 +3,10 @@ kind: Kustomization
 bases:
   - ../base
 
+namespace: kubecraft
+resources:
+  - ns.yaml
+
 configMapGenerator:
   - name: kubecraft
     files:
