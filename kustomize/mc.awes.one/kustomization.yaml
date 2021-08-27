@@ -14,6 +14,3 @@ configMapGenerator:
 
 patchesStrategicMerge:
   - patch.yaml
-
-commonAnnotations:
-  domain: mc.awes.one

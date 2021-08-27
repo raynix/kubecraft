@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubecraft
+spec:
+  selector:
+    app: kubecraft
+  type: NodePort
+  ports:
+    - name: minecraft-udp
+      port: 25565
+      targetPort: 25565
+      protocol: UDP
