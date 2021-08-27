@@ -33,11 +33,8 @@ spec:
               subPath: server.properties
           resources:
             requests:
-              cpu: 2
+              cpu: 1
               memory: 2Gi
-            limits:
-              cpu: 3
-              memory: 3Gi
       volumes:
         - name: kubecraft-config-volume
           configMap:
