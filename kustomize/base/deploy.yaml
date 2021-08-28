@@ -27,6 +27,7 @@ spec:
           image: ghcr.io/raynix/kubecraft:v0.2
           ports:
             - containerPort: 25565
+              protocol: UDP
           volumeMounts:
             - name: kubecraft-config-volume
               mountPath: /minecraft/server.properties
