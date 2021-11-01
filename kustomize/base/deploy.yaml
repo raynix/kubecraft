@@ -32,11 +32,16 @@ spec:
             - name: kubecraft-config-volume
               mountPath: /minecraft/server.properties
               subPath: server.properties
+            - name: world-volume
+              mountPath: /minecraft/world
           resources:
             requests:
-              cpu: 1
+              cpu: 500m
               memory: 2Gi
       volumes:
         - name: kubecraft-config-volume
           configMap:
             name: kubecraft
+        - name: world-volume
+          persistentVolumeClaim:
+            claimName: pvc-mc
